@@ -1,17 +1,9 @@
 import { Navbar, Container } from 'react-bootstrap';
-import { useEffect, useState } from 'react'
-import { getDocData } from '../../services/firebase'
+import { useSelector } from 'react-redux';
 
 function Header() {
-    const [websiteData , updatewebsiteData] = useState({});
-    useEffect(()=>{
-        let test = getDocData('amazon');
-        test.then((data)=>{
-            updatewebsiteData(data);
-        }).catch(()=>{
-            console.log("Something went wrong")   
-        })
-    },[]);
+    const webSiteConfig = useSelector(state => state.homePage.webSiteConfig)
+
     return(
         <header>
             <Navbar bg="dark" variant='dark'>
@@ -24,7 +16,7 @@ function Header() {
                             className="d-inline-block align-top"
                             alt="React Bootstrap logo"
                         />{' '}
-                    {websiteData.title}
+                    {webSiteConfig.title}
                     </Navbar.Brand>
                 </Container>
             </Navbar>   

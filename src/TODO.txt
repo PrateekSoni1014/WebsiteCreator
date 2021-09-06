@@ -1,0 +1,6 @@
+-> Implement basic firebase for basic data (Done)
+-> implemnet routing (Done)
+-> Implement redux (Done)
+-> Implement Saga
+-> implement signin and signout
+-> 

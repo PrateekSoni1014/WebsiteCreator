@@ -11,7 +11,6 @@ function PrivateRoute({component:Component , ...rest}){
                 authed ? (
                     <>
                         {rest.headerRequired && (<Header/>)}
-                        {/* <div>{props}</div> */}
                         {Component && <Component {...props}/>}
                         {rest.footerRequired && (<Footer/>)}                        
                     </>

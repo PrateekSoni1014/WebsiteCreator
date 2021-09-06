@@ -1,33 +1,14 @@
-import { useEffect, useState } from 'react'
-import { connect } from 'react-redux';
-import { getDocData } from '../../services/firebase'
-import { setTitle } from '../../store/reducer/homePage';
+import { useSelector } from 'react-redux';
 
-function Home(props) {
-    const [websiteData , updatewebsiteData] = useState({});
-    useEffect(()=>{
-        let test = getDocData('amazon');
-        test.then((data)=>{
-            updatewebsiteData(data);
-        }).catch(()=>{
-            console.log("Something went wrong")   
-        })
-    },[]);
+function Home() {
+    const webSiteConfig = useSelector(state => state.homePage.webSiteConfig)
+
     return(
         <div>
-            {props.title}
+            Hii
+            {webSiteConfig.title}
         </div>
     )
 }
 
-const mapStateToProps = (state)=>{
-    return {
-        title: state.homePage.title
-    }
-}
-const mapDispatchToProps = (dispatch) =>{
-    return {
-        setTitle: ()=> dispatch(setTitle())
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Home) ;
+export default Home ;

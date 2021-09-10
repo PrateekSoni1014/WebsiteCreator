@@ -1,6 +1,6 @@
 import { Redirect, Route } from "react-router";
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
+import Footer from "../Components/User/Footer";
+import Header from "../Components/User/Header";
 
 function PrivateRoute({component:Component , ...rest}){
     let authed = localStorage.getItem('jwt_access_token') || sessionStorage.getItem('jwt_access_token') ? true : false;

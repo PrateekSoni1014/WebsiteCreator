@@ -1,16 +1,16 @@
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function Header() {
     const webSiteConfig = useSelector(state => state.homePage.webSiteConfig)
-
+    const navElements = webSiteConfig.navElements?.map((navElement, index) => <Nav.Link key={index} href={navElement.path}>{navElement.label}</Nav.Link>)
     return(
         <header>
             <Navbar bg="dark" variant='dark'>
                 <Container>
                     <Navbar.Brand href="#home">
                         <img
-                            src="/images/mainLogo.jpg"
+                            src="/images/circle-cropped.png"
                             width="30"
                             height="30"
                             className="d-inline-block align-top"
@@ -20,6 +20,13 @@ function Header() {
                     </Navbar.Brand>
                 </Container>
             </Navbar>   
+            <Navbar bg="primary" variant='dark'>
+                <Container>
+                    <Nav>
+                        {navElements}
+                    </Nav>                        
+                </Container>
+            </Navbar>  
         </header>
     )
 }

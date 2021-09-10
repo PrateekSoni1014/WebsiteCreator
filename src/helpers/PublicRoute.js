@@ -1,6 +1,7 @@
 import { Route } from "react-router";
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
+import Footer from "../Components/User/Footer";
+import Header from "../Components/User/Header";
+import AdminHeader from "../Components/Admin/AdminHeader";
 
 function PublicRoute({component:Component , ...rest}){
     return(
@@ -9,7 +10,7 @@ function PublicRoute({component:Component , ...rest}){
             render = {(props)=>
                 <>
                     {rest.headerRequired && (<Header/>)}
-                    {/* <div>{props}</div> */}
+                    {rest.adminPage && (<AdminHeader/>)}
                     {Component && <Component {...props}/>}
                     {rest.footerRequired && (<Footer/>)}                        
                 </>

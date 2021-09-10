@@ -3,14 +3,12 @@ import PrivateRoute from "../helpers/PrivateRoute";
 import PublicRoute from "../helpers/PublicRoute";
 import routeList from './routeList';
 
-function Routes(props){
-    console.log("🚀 ~ Routes ~ history", window.location.href)
-
-    let routeListData = routeList.map((routeElement)=>{
+function Routes(){
+    let routeListData = routeList.map((routeElement,index)=>{
         if(routeElement.isAuthReq){
-            return (<PrivateRoute exact {...routeElement} />)
+            return (<PrivateRoute key={index} exact {...routeElement} />)
         }else{
-            return (<PublicRoute exact {...routeElement} />)
+            return (<PublicRoute key={index} exact {...routeElement} />)
         }
     });
     return(

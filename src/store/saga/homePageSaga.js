@@ -7,7 +7,6 @@ export default function* homePageSagaWatcher() {
 }
 
 function* getWebSiteDataWorker(action) {
-    console.log("function called")
     const result =  yield getDocData(action.payload);
     console.log("🚀 ~ function*getWebSiteDataWorker ~ result", result)
     if(result)

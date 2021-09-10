@@ -8,6 +8,7 @@ function App(props) {
   const dispatch = useDispatch();
   useEffect(()=>{
     let currentDomain = window.location.hostname;
+    currentDomain = 'kirtisharma';
     dispatch(getWebSiteDataStart(currentDomain))
   },[dispatch])
   return (

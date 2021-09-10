@@ -5,7 +5,6 @@ function Home() {
 
     return(
         <div>
-            Hii
             {webSiteConfig.title}
         </div>
     )

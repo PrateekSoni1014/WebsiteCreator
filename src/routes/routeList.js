@@ -1,4 +1,5 @@
 import AdminHome from "../Components/Admin/AdminHome";
+import CreateWebPage from "../Components/Admin/CreateWebPage";
 import Home from "../Components/User/Home";
 
 const routeList = [
@@ -16,8 +17,14 @@ const routeList = [
         footerRequired:false,
         adminPage : true,
         component:AdminHome
+    },{
+        path:'/createWebPage',
+        isAuthReq:false,
+        headerRequired:false,
+        footerRequired:false,
+        adminPage : false,
+        component:CreateWebPage
     }
-
 ]
 
 export default routeList

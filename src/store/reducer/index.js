@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import homePage from './homePage'
+import setting from './setting'
 
 const appReducer = combineReducers({
-    homePage
+    setting
 })
 const rootReducer = (state, action) => {
     return appReducer(state, action)

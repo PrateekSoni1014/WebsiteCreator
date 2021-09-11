@@ -1,5 +1,4 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
 
 function AdminHeader(){
     return(

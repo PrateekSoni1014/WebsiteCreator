@@ -9,18 +9,19 @@ function CreateWebPage(){
     const dispatch = useDispatch();
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log("webSiteTitle", webSiteTitle);
-        console.log("webSiteDomain", webSiteDomain);
         let domain = (new URL(webSiteDomain));
         if(domain){
             domain = domain.hostname.replace('www.','');
-            console.log("🚀 ~ handleSubmit ~ domain", domain)
             domain = domain.replace('.com','');
             domain = domain.replace('.in','');
-            console.log("🚀 ~ handleSubmit ~ domain", domain)
             let data = {
                 title: webSiteTitle,
-                navElements:[]
+                navElements:[
+                    {
+                        label : 'Home',
+                        path: '/'
+                    }
+                ]
             }
             dispatch(createSettingStart({data,domain }))
         }

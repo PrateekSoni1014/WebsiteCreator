@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
 
-function Home() {
+function Home(props) {
     const webSiteConfig = useSelector(state => state.setting.webSiteConfig)
-
     return(
         <div>
             {webSiteConfig.title}

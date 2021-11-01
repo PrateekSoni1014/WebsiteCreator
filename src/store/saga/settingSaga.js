@@ -20,8 +20,12 @@ function* getWebSiteDataWorker(action) {
 
 function* updateSettingWorker(action) {
     const result =  yield updateDocData(action.payload);
-    if(result)
-    yield put(updateSettingSuccess(result))
+    console.log("🚀 ~ function*updateSettingWorker ~ result", result)
+    if(result){
+        yield put(updateSettingSuccess(result))
+        yield put(getWebSiteDataSuccess(result))
+        alert("Setting Updated");
+    }
     else
     yield put(updateSettingError('Something went wrong'))
 }

@@ -11,11 +11,11 @@ function App(props) {
 
   useEffect(()=>{
     let currentDomain = window.location.hostname;
-    currentDomain = 'testRishi';
+    currentDomain = 'test21';
     if(currentDomain === process.env.REACT_APP_BASE_DOMAIN) history.push("/createWebPage");
     dispatch(getWebSiteDataStart(currentDomain))
     localStorage.setItem('currentDomain',currentDomain )
-  },[dispatch])
+  },[dispatch, history])
   return (
     <div className="App">
       <Routes />

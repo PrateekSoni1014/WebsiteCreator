@@ -8,26 +8,31 @@ async function getAllData(db,colName,docName){
     if (docSnap.exists()) {
         return docSnap.data()
     } else {
-        const newDocRef = collection(db, colName);
-        let resultData = {
-            config: {
-                logo:'test',
-                navElements:[],
-                title:docName
-            } }
-        await setDoc(doc(newDocRef, docName), resultData);
-        return resultData;
+        // const newDocRef = collection(db, colName);
+        // let resultData = {
+        //     config: {
+        //         logo:'test',
+        //         navElements:[],
+        //         title:docName
+        //     } }
+        // await setDoc(doc(newDocRef, docName), resultData);
+        // return resultData;
+        window.location.assign(process.env.REACT_APP_CREATION_PAGE);
     }
 }
 
 async function updateData(db,colName,docName, data){
-    const docRef = collection(db, colName);
-    let dataKey = 'config.'+Object.keys(data)[0];
-    let resultData = { [dataKey] : data[Object.keys(data)[0]] }
-    let finalResonse = await updateDoc(doc(docRef, docName), resultData);
-    return finalResonse; 
+    
+    try {
+        const docRef = collection(db, colName);
+        let dataKey = 'config.'+Object.keys(data)[0];
+        let resultData = { [dataKey] : data[Object.keys(data)[0]] }
+        await updateDoc(doc(docRef, docName), resultData);    
+        return resultData;
+    } catch (error) {
+        console.log("🚀 ~ updateData ~ error", error)
+    }
 }
-
 async function createData(db,colName,docName, config){
     const docRef = collection(db, colName);
     let resultData = { config }
@@ -46,12 +51,10 @@ export async function getDocData(currentDomain){
 }
 
 export async function updateDocData({currentDomain,data}){
-    await updateData(db,'Websites',currentDomain, data);
+    return await updateData(db,'Websites',currentDomain, data);
 }
 
-export async function createDocData({domain,data}){
-    console.log("🚀 ~ createDocData ~ data", data)
-    console.log("🚀 ~ createDocData ~ domain", domain)
+export async function createDocData({domain,data}){   
     await createData(db,'Websites',domain, data);
 }
 

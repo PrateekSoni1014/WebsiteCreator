@@ -27,6 +27,7 @@ const {
         getWebSiteDataSuccess: (state, action)=>({
             ...state,
             success:true,
+            loading:false,
             webSiteConfig:action.payload
         }),
         getWebSiteDataError: (state,action)=>({

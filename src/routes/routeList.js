@@ -1,25 +1,25 @@
 import AdminHome from "../Components/Admin/AdminHome";
-import CreateWebPage from "../Components/Admin/CreateWebPage";
+import CreateWebPage from "../Components/SuperAdmin/CreateWebPage";
 import Home from "../Components/User/Home";
 
 const routeList = [
     {
         path:'/',
-        isAuthReq:false,
+        authRequired:false,
         headerRequired:true,
         footerRequired:true,
         adminPage : false,
         component:Home
     },{
         path:'/websiteCreatorAdmin',
-        isAuthReq:false,
+        authRequired:false,
         headerRequired:false,
         footerRequired:false,
         adminPage : true,
         component:AdminHome
     },{
         path:'/createWebPage',
-        isAuthReq:false,
+        authRequired:false,
         headerRequired:false,
         footerRequired:false,
         adminPage : false,

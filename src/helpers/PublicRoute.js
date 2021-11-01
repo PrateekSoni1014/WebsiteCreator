@@ -11,7 +11,7 @@ function PublicRoute({component:Component , ...rest}){
                 <>
                     {rest.headerRequired && (<Header/>)}
                     {rest.adminPage && (<AdminHeader/>)}
-                    {Component && <Component {...props}/>}
+                    {Component && <Component {...props} {...rest}/>}
                     {rest.footerRequired && (<Footer/>)}                        
                 </>
             }
